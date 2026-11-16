@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr" data-style="defaut">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohamed-Bilal Boukhaddi — Portfolio BTS SIO SLAM</title>
+<meta name="description" content="Portfolio de Mohamed-Bilal Boukhaddi. Futur étudiant en BTS SIO option SLAM, avec l'objectif de poursuivre en web design.">
+<meta name="theme-color" content="#4f46e5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&family=Archivo:wght@400;600;800&family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* ---------- Base ---------- */
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth;background:var(--bg)}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font-family:var(--font-body);font-size:var(--body-size);line-height:var(--body-lh);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:clamp(1.25rem,5vw,2.5rem)}
+p{margin:0 0 1rem;max-width:62ch}
+ul,ol{margin:0;padding:0}
+
+/* ---------- Thèmes : Défaut ---------- */
+:root,[data-style="defaut"]{
+  --bg:#f6f6fb;--fg:#1b1b2f;--muted:#5a5a75;
+  --accent:#4f46e5;--accent-ink:#ffffff;--accent2:#4f46e5;
+  --surface:#ffffff;--line:#e2e2ee;--line-strong:#c9c9e0;
+  --radius:16px;--r-sm:10px;--r-tag:999px;--r-dot:50%;
+  --font-body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-head:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --head-weight:700;--head-track:-0.03em;--head-style:normal;
+  --body-size:1.0625rem;--body-lh:1.65;
+  --rule:1px solid var(--line);--frame:1px solid var(--line);
+  --name-shadow:none;--btn-radius:999px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"])[data-style="defaut"]{
+    --bg:#12121c;--fg:#ececf7;--muted:#a6a6c2;
+    --accent:#8b85ff;--accent-ink:#12121c;--accent2:#8b85ff;
+    --surface:#1b1b2a;--line:#2c2c40;--line-strong:#3d3d58;
+  }
+}
+:root[data-theme="dark"][data-style="defaut"]{
+  --bg:#12121c;--fg:#ececf7;--muted:#a6a6c2;
+  --accent:#8b85ff;--accent-ink:#12121c;--accent2:#8b85ff;
+  --surface:#1b1b2a;--line:#2c2c40;--line-strong:#3d3d58;
+}
+
+/* ---------- Thème : Fusion (sombre, deux couleurs) ---------- */
+[data-style="fusion"]{
+  --bg:#0e0b1f;--fg:#f3eefc;--muted:#b6acd4;
+  --accent:#ff6b9d;--accent-ink:#0e0b1f;--accent2:#37d6c5;
+  --surface:#171331;--line:#2a2450;--line-strong:#463d80;
+  --radius:4px;--r-sm:3px;--r-tag:3px;--r-dot:2px;
+  --font-body:"Space Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-head:"Space Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --head-weight:700;--head-track:-0.04em;--head-style:normal;
+  --body-size:1.0625rem;--body-lh:1.65;
+  --rule:1px solid var(--line);--frame:1px solid var(--line-strong);
+  --name-shadow:0.045em 0.045em 0 var(--accent2);--btn-radius:3px;
+}
+
+/* ---------- Thème : Studio suisse ---------- */
+[data-style="suisse"]{
+  --bg:#ffffff;--fg:#000000;--muted:#555555;
+  --accent:#e3000f;--accent-ink:#ffffff;--accent2:#e3000f;
+  --surface:#ffffff;--line:#d9d9d9;--line-strong:#000000;
+  --radius:0;--r-sm:0;--r-tag:0;--r-dot:0;
+  --font-body:"Archivo",Helvetica,Arial,sans-serif;
+  --font-head:"Archivo",Helvetica,Arial,sans-serif;
+  --head-weight:800;--head-track:-0.045em;--head-style:normal;
+  --body-size:1.0625rem;--body-lh:1.6;
+  --rule:4px solid #000;--frame:2px solid #000;
+  --name-shadow:none;--btn-radius:0;
+}
+
+/* ---------- Thème : Registre (papier, encre, serif) ---------- */
+[data-style="registre"]{
+  --bg:#e9ece4;--fg:#1d2a3a;--muted:#48566a;
+  --accent:#8a1c2b;--accent-ink:#ffffff;--accent2:#8a1c2b;
+  --surface:#f3f5ef;--line:#c2c9bb;--line-strong:#1d2a3a;
+  --radius:2px;--r-sm:0;--r-tag:0;--r-dot:50%;
+  --font-body:"Newsreader",Georgia,"Times New Roman",serif;
+  --font-head:"Newsreader",Georgia,"Times New Roman",serif;
+  --head-weight:600;--head-track:-0.02em;--head-style:italic;
+  --body-size:1.25rem;--body-lh:1.7;
+  --rule:3px double var(--line-strong);--frame:1px solid var(--line-strong);
+  --name-shadow:none;--btn-radius:0;
+}
+
+/* ---------- En-tête ---------- */
+.bar{border-bottom:var(--rule)}
+.bar-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 2rem;padding-block:1rem}
+.brand{font-family:var(--font-head);font-weight:var(--head-weight);font-style:var(--head-style);letter-spacing:var(--head-track);font-size:1.15rem;color:var(--fg);text-decoration:none}
+nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;list-style:none}
+nav a{color:var(--fg);text-decoration:none;padding:.25rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:var(--accent)}
+.styles{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .75rem;padding-bottom:1rem;font-size:.95rem;color:var(--muted)}
+.styles div{display:flex;flex-wrap:wrap;gap:.4rem}
+.styles button{
+  font:inherit;font-size:.95rem;cursor:pointer;color:var(--fg);background:transparent;
+  border:1px solid var(--line-strong);border-radius:var(--btn-radius);padding:.35rem .9rem;
+}
+.styles button:hover{border-color:var(--accent)}
+.styles button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+/* ---------- Accueil ---------- */
+.hero{padding:clamp(3rem,10vw,7rem) 0 clamp(3rem,8vw,5.5rem)}
+.hero h1{
+  margin:0 0 1.5rem;font-family:var(--font-head);font-weight:var(--head-weight);font-style:var(--head-style);
+  letter-spacing:var(--head-track);line-height:.95;font-size:clamp(2.4rem,10.5vw,6.75rem);
+  text-shadow:var(--name-shadow);overflow-wrap:anywhere;
+}
+.lead{font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:1.45;color:var(--fg);max-width:34ch}
+.hero p.more{color:var(--muted);max-width:52ch}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.btn{
+  display:inline-block;font:inherit;font-weight:600;text-decoration:none;cursor:pointer;
+  padding:.8rem 1.4rem;border-radius:var(--btn-radius);border:2px solid var(--accent);
+  background:var(--accent);color:var(--accent-ink);
+}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line-strong)}
+.btn.ghost:hover{border-color:var(--accent);filter:none}
+
+/* ---------- Sections ---------- */
+.section{display:grid;grid-template-columns:minmax(0,1fr);gap:1.25rem;padding:clamp(2.25rem,6vw,4.5rem) 0;border-top:var(--rule)}
+.section h2{
+  margin:0;font-family:var(--font-head);font-weight:var(--head-weight);font-style:var(--head-style);
+  letter-spacing:var(--head-track);font-size:clamp(1.5rem,3.5vw,2rem);line-height:1.1;
+}
+@media (min-width:800px){
+  .section{grid-template-columns:220px minmax(0,1fr);gap:2rem}
+}
+
+/* Parcours */
+.steps{list-style:none;margin-left:.5rem}
+.steps li{position:relative;padding:0 0 2rem 1.75rem;border-left:2px solid var(--line-strong)}
+.steps li:last-child{padding-bottom:0;border-left-color:transparent;background:linear-gradient(var(--line-strong),var(--line-strong)) left top/2px 1.2rem no-repeat}
+.steps li::before{content:"";position:absolute;left:-7px;top:.4rem;width:12px;height:12px;border-radius:var(--r-dot);background:var(--accent)}
+.steps h3{margin:0 0 .35rem;font-family:var(--font-head);font-weight:var(--head-weight);font-style:var(--head-style);letter-spacing:var(--head-track);font-size:1.25rem;line-height:1.2}
+.steps p{margin:0;color:var(--muted)}
+
+/* Compétences */
+.skills{display:grid;gap:1.5rem}
+.skills h3{margin:0 0 .6rem;font-family:var(--font-head);font-weight:var(--head-weight);font-style:var(--head-style);letter-spacing:var(--head-track);font-size:1.15rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none}
+.tags li{padding:.35rem .9rem;border:1px solid var(--line-strong);border-radius:var(--r-tag);background:var(--surface);font-weight:500}
+
+/* Projet */
+.project{border:var(--frame);border-radius:var(--radius);background:var(--surface);padding:clamp(1.25rem,4vw,2.25rem)}
+.project h3{margin:0 0 .4rem;font-family:var(--font-head);font-weight:var(--head-weight);font-style:var(--head-style);letter-spacing:var(--head-track);font-size:clamp(1.3rem,3vw,1.7rem);line-height:1.2}
+.domain{display:block;margin:0 0 1.25rem;font-size:1rem;color:var(--muted);overflow-wrap:anywhere}
+
+/* Contact */
+.contact{display:grid;gap:0;margin:0}
+.contact div{display:grid;grid-template-columns:minmax(0,1fr);gap:.1rem;padding:.9rem 0;border-bottom:1px solid var(--line-strong)}
+.contact div:first-child{border-top:1px solid var(--line-strong)}
+.contact dt{color:var(--muted);font-size:.95rem}
+.contact dd{margin:0;font-size:1.15rem;overflow-wrap:anywhere}
+.contact a{color:var(--fg);text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px}
+.contact a:hover{color:var(--accent)}
+@media (min-width:560px){
+  .contact div{grid-template-columns:160px minmax(0,1fr);align-items:baseline;gap:1rem}
+}
+
+/* Blocs de compétences, veille, documents */
+.blocs{display:grid;gap:2.5rem}
+.blocs h3{margin:0 0 .75rem;font-family:var(--font-head);font-weight:var(--head-weight);font-style:var(--head-style);letter-spacing:var(--head-track);font-size:1.2rem;line-height:1.25}
+.note{color:var(--muted)}
+.comp{border-top:1px solid var(--line-strong);padding:.2rem 0}
+.comp:last-of-type{border-bottom:1px solid var(--line-strong)}
+.comp summary{cursor:pointer;font-weight:600;padding:.7rem 0}
+.comp ul{list-style:disc;padding-left:1.25rem;margin:0 0 .75rem;color:var(--muted)}
+.comp p{margin:0 0 .9rem}
+.plain{list-style:none}
+.plain li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 1rem;padding:.7rem 0;border-top:1px solid var(--line-strong)}
+.todo{color:var(--muted);font-style:italic}
+.docs{list-style:none;display:flex;flex-wrap:wrap;gap:.75rem}
+footer{border-top:var(--rule);padding:1.5rem 0 2rem;color:var(--muted);font-size:.95rem}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body id="top">
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="#top">Bilal Boukhaddi</a>
+    <nav aria-label="Sections du portfolio">
+      <ul>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#projet">Projet</a></li>
+        <li><a href="#blocs">Blocs BTS</a></li>
+        <li><a href="#veille">Veille</a></li>
+        <li><a href="#documents">Documents</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap styles">
+    <span id="styles-label">Thème</span>
+    <div role="group" aria-labelledby="styles-label">
+      <button type="button" data-pick="defaut" aria-pressed="true">Défaut</button>
+      <button type="button" data-pick="fusion" aria-pressed="false">Fusion</button>
+      <button type="button" data-pick="suisse" aria-pressed="false">Studio suisse</button>
+      <button type="button" data-pick="registre" aria-pressed="false">Registre</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero" aria-labelledby="titre">
+      <h1 id="titre">Mohamed-Bilal Boukhaddi</h1>
+      <p class="lead">Je prépare un BTS SIO option SLAM, puis je veux continuer en web design.</p>
+      <p class="more">Je code en PHP, C# et JavaScript. Je sais aussi créer des designs. Mon but est de faire des sites clairs et beaux.</p>
+      <div class="actions">
+        <a class="btn" href="#projet">Voir mon projet</a>
+        <a class="btn ghost" href="#contact">Me contacter</a>
+      </div>
+    </section>
+
+    <section class="section" id="parcours" aria-labelledby="h-parcours">
+      <h2 id="h-parcours">Parcours</h2>
+      <ol class="steps">
+        <li>
+          <h3>Stage dans un cabinet d'infirmiers</h3>
+          <p>J'ai créé le site du cabinet avec WordPress, de A à Z.</p>
+        </li>
+        <li>
+          <h3>BTS SIO option SLAM</h3>
+          <p>C'est mon objectif. SLAM veut dire Solutions Logicielles et Applications Métier. Cette option apprend à créer des applications et des sites.</p>
+        </li>
+        <li>
+          <h3>Études en web design</h3>
+          <p>Après le BTS, je veux continuer dans le web design. Je pourrai ainsi relier le code et le design.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" id="competences" aria-labelledby="h-competences">
+      <h2 id="h-competences">Compétences</h2>
+      <div class="skills">
+        <div>
+          <h3>Programmation</h3>
+          <ul class="tags">
+            <li>PHP</li>
+            <li>C#</li>
+            <li>JavaScript</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Web et design</h3>
+          <ul class="tags">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>WordPress</li>
+            <li>Design</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projet" aria-labelledby="h-projet">
+      <h2 id="h-projet">Projet</h2>
+      <article class="project">
+        <h3>Site d'un cabinet d'infirmiers</h3>
+        <a class="domain" href="https://infirmiers-centre-aurillac.fr" target="_blank" rel="noopener">infirmiers-centre-aurillac.fr</a>
+        <p>Pendant mon stage, j'ai réalisé ce site de A à Z avec WordPress. Il présente le cabinet et aide les patients à le trouver.</p>
+        <div class="actions">
+          <a class="btn" href="https://infirmiers-centre-aurillac.fr" target="_blank" rel="noopener">Visiter le site</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="blocs" aria-labelledby="h-blocs">
+      <h2 id="h-blocs">Compétences du BTS</h2>
+      <div class="blocs">
+        <div>
+          <h3>Bloc 1 : Support et mise à disposition de services informatiques</h3>
+          <p class="note">Ce bloc est évalué à l’épreuve E5. Chaque compétence est liée à une réalisation.</p>
+          <details class="comp"><summary>Gérer le patrimoine informatique</summary>
+            <ul><li>Recenser et identifier les ressources numériques</li><li>Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</li><li>Mettre en place et vérifier les niveaux d’habilitation associés à un service</li><li>Vérifier les conditions de la continuité d’un service informatique</li><li>Gérer des sauvegardes</li><li>Vérifier le respect des règles d’utilisation des ressources numériques</li></ul>
+            <p class="todo">Réalisation à ajouter</p></details>
+          <details class="comp"><summary>Répondre aux incidents et aux demandes d’assistance et d’évolution</summary>
+            <ul><li>Collecter, suivre et orienter des demandes</li><li>Traiter des demandes concernant les services réseau et système, applicatifs</li><li>Traiter des demandes concernant les applications</li></ul>
+            <p class="todo">Réalisation à ajouter</p></details>
+          <details class="comp"><summary>Développer la présence en ligne de l’organisation</summary>
+            <ul><li>Participer à la valorisation de l’image de l’organisation sur les médias numériques, en tenant compte du cadre juridique et des enjeux économiques</li><li>Référencer les services en ligne de l’organisation et mesurer leur visibilité</li><li>Participer à l’évolution d’un site Web exploitant les données de l’organisation</li></ul>
+            <p>Réalisation : <a href="#projet">site WordPress du cabinet d’infirmiers</a></p></details>
+          <details class="comp"><summary>Travailler en mode projet</summary>
+            <ul><li>Analyser les objectifs et les modalités d’organisation d’un projet</li><li>Planifier les activités</li><li>Évaluer les indicateurs de suivi d’un projet et analyser les écarts</li></ul>
+            <p class="todo">Réalisation à ajouter</p></details>
+          <details class="comp"><summary>Mettre à disposition des utilisateurs un service informatique</summary>
+            <ul><li>Réaliser les tests d’intégration et d’acceptation d’un service</li><li>Déployer un service</li><li>Accompagner les utilisateurs dans la mise en place d’un service</li></ul>
+            <p class="todo">Réalisation à ajouter</p></details>
+          <details class="comp"><summary>Organiser son développement professionnel</summary>
+            <ul><li>Mettre en place son environnement d’apprentissage personnel</li><li>Mettre en œuvre des outils et stratégies de veille informationnelle</li><li>Gérer son identité professionnelle</li><li>Développer son projet professionnel</li></ul>
+            <p>Réalisations : <a href="#veille">ma veille</a>, <a href="https://www.linkedin.com/in/bilal-boukhaddi" target="_blank" rel="noopener">mon profil LinkedIn</a></p></details>
+        </div>
+        <div>
+          <h3>Bloc 2 : Conception et développement d’applications (SLAM)</h3>
+          <ul class="plain"><li>Concevoir et développer une solution applicative <span class="todo">Réalisation à ajouter</span></li><li>Assurer la maintenance corrective ou évolutive d’une solution applicative <span class="todo">Réalisation à ajouter</span></li><li>Gérer les données <span class="todo">Réalisation à ajouter</span></li></ul>
+        </div>
+        <div>
+          <h3>Bloc 3 : Cybersécurité des services informatiques</h3>
+          <ul class="plain"><li>Protéger les données à caractère personnel <span class="todo">Réalisation à ajouter</span></li><li>Préserver l’identité numérique de l’organisation <span class="todo">Réalisation à ajouter</span></li><li>Sécuriser les équipements et les usages des utilisateurs <span class="todo">Réalisation à ajouter</span></li><li>Garantir la disponibilité, l’intégrité et la confidentialité des services informatiques et des données face aux cyberattaques <span class="todo">Réalisation à ajouter</span></li><li>Assurer la cybersécurité d’une solution applicative et de son développement <span class="todo">Réalisation à ajouter</span></li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="veille" aria-labelledby="h-veille">
+      <h2 id="h-veille">Veille technologique</h2>
+      <p class="todo">À compléter : mon sujet de veille, mes outils et mes sources.</p>
+    </section>
+
+    <section class="section" id="documents" aria-labelledby="h-documents">
+      <h2 id="h-documents">Documents</h2>
+      <ul class="docs">
+        <li><a class="btn ghost" href="documents/tableau-synthese-e5.pdf" target="_blank" rel="noopener">Tableau de synthèse E5 (PDF)</a></li>
+        <li><a class="btn ghost" href="documents/cv.pdf" target="_blank" rel="noopener">Mon CV (PDF)</a></li>
+      </ul>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="h-contact">
+      <h2 id="h-contact">Contact</h2>
+      <div>
+        <p>Une question ? Une proposition ? Écris-moi, je réponds vite.</p>
+        <dl class="contact">
+          <div><dt>E-mail</dt><dd><a href="mailto:bilalboukhaddi15@gmail.com">bilalboukhaddi15@gmail.com</a></dd></div>
+          <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/bilal-boukhaddi" target="_blank" rel="noopener">linkedin.com/in/bilal-boukhaddi</a></dd></div>
+          <div><dt>Téléphone</dt><dd><a href="tel:+33745505280">07 45 50 52 80</a></dd></div>
+        </dl>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Mohamed-Bilal Boukhaddi</div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var buttons=document.querySelectorAll('[data-pick]');
+  var meta=document.querySelector('meta[name="theme-color"]');
+  var colors={defaut:'#4f46e5',fusion:'#0e0b1f',suisse:'#e3000f',registre:'#e9ece4'};
+  function apply(name){
+    root.setAttribute('data-style',name);
+    if(meta){meta.setAttribute('content',colors[name]);}
+    for(var i=0;i<buttons.length;i++){
+      buttons[i].setAttribute('aria-pressed',buttons[i].getAttribute('data-pick')===name?'true':'false');
+    }
+  }
+  var saved=null;
+  try{saved=localStorage.getItem('portfolio-style');}catch(e){}
+  if(!saved||!colors[saved]){saved='defaut';}
+  apply(saved);
+  for(var j=0;j<buttons.length;j++){
+    buttons[j].addEventListener('click',function(){
+      var name=this.getAttribute('data-pick');
+      apply(name);
+      try{localStorage.setItem('portfolio-style',name);}catch(e){}
+    });
+  }
+})();
+</script>
+</body>
+</html>
